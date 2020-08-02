@@ -13,8 +13,13 @@ import java.util.UUID;
 public class HeroService {
 
     private final HeroRepository heroRepository;
+    
+        public HeroService(HeroRepository heroRepository) {
+		super();
+		this.heroRepository = heroRepository;
+	}
 
-    @Transactional
+	@Transactional
     public UUID create(CreateHeroRequest createHeroRequest) {
         return heroRepository.create(new Hero(createHeroRequest, null));
     }

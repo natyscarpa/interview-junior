@@ -2,6 +2,8 @@ package br.com.brainweb.interview.core.features.hero;
 
 import br.com.brainweb.interview.model.request.CreateHeroRequest;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,10 +22,15 @@ import static org.springframework.http.ResponseEntity.created;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/heroes", produces = APPLICATION_JSON_VALUE)
 public class HeroController {
-
+	
     private final HeroService heroService;
+	
+    public HeroController(HeroService heroService) {
+		super();
+		this.heroService = heroService;
+	}
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+	@PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated
                                        @RequestBody CreateHeroRequest createHeroRequest) {
         final UUID id = heroService.create(createHeroRequest);

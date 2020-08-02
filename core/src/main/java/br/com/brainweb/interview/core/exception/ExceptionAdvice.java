@@ -19,6 +19,9 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.ResponseEntity.status;
 
@@ -27,6 +30,7 @@ import static org.springframework.http.ResponseEntity.status;
 @RequiredArgsConstructor
 public class ExceptionAdvice {
 
+	Logger log = LoggerFactory.getLogger(ExceptionAdvice.class);
 
     @ExceptionHandler(value = {Exception.class})
     ResponseEntity<Object> handleGeneralException(Exception e) {

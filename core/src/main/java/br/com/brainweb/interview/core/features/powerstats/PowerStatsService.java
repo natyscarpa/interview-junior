@@ -11,7 +11,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PowerStatsService {
 
-    private final PowerStatsRepository powerStatsRepository;
+    private final PowerStatsRepository powerStatsRepository = null;
 
     @Transactional
     public UUID create(PowerStats powerStats) {

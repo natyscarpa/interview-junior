@@ -16,12 +16,12 @@ public class PowerStatsRepository {
         " (strength, agility, dexterity, intelligence)" +
         " VALUES (:strength, :agility, :dexterity, :intelligence) RETURNING id";
 
-    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate = null;
 
     UUID create(PowerStats powerStats) {
-        return namedParameterJdbcTemplate.queryForObject(
+        return null; /**namedParameterJdbcTemplate.queryForObject(
             CREATE_POWER_STATS_QUERY,
             new BeanPropertySqlParameterSource(powerStats),
-            UUID.class);
+            UUID.class); */
     }
 }

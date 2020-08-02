@@ -18,7 +18,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class Hero {
 
-    private UUID id;
+	private UUID id;
     private String name;
     private Race race;
     private UUID powerStatsId;
@@ -31,4 +31,28 @@ public class Hero {
         this.race = createHeroRequest.getRace();
         this.powerStatsId = powerStatsId;
     }
+    
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Race getRace() {
+		return race;
+	}
+
+	public void setRace(Race race) {
+		this.race = race;
+	}
+
+	public UUID getPowerStatsId() {
+		return powerStatsId;
+	}
+
+	public void setPowerStatsId(UUID powerStatsId) {
+		this.powerStatsId = powerStatsId;
+	}
 }
